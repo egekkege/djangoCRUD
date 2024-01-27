@@ -23,11 +23,12 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('users/', include('testdb.urls')),
-    #path('my-url/', views.my_view, name='my_view'),
     path('', views.show_all, name='show_all'),
     path('read/<int:id>/', views.show_one, name='show_one'),
     path('api/people/<int:pk>/', PeopleUpdateView.as_view(), name='person-update'),
     path('api/peopled/<int:pk>/', PeopleDeleteView.as_view(), name='person-delete'),
     path('api/people/', PeopleCreateView.as_view(), name='people-create'),
+    path('peoplelist/<int:pk>/', views.PeopleList.as_view()),
+    path('peoplelist/', views.PeopleList.as_view()),
+
 ]
