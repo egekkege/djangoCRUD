@@ -15,20 +15,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from testdb import views
-from testdb.views import PeopleUpdateView
-from testdb.views import PeopleDeleteView
-from testdb.views import PeopleCreateView
+# from testdb.views import PeopleUpdateView
+# from testdb.views import PeopleDeleteView
+# from testdb.views import PeopleCreateView
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import __all__
+from rest_framework_simplejwt import views as jwt_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.show_all, name='show_all'),
-    path('read/<int:id>/', views.show_one, name='show_one'),
-    path('api/people/<int:pk>/', PeopleUpdateView.as_view(), name='person-update'),
-    path('api/peopled/<int:pk>/', PeopleDeleteView.as_view(), name='person-delete'),
-    path('api/people/', PeopleCreateView.as_view(), name='people-create'),
+    path('',  views.PeopleList.as_view(), name='show_all'),
     path('peoplelist/<int:pk>/', views.PeopleList.as_view()),
-    path('peoplelist/', views.PeopleList.as_view()),
-
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name ='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name ='token_refresh'),
+    path('account/', include('testdb.urls')),
+    # path('read/<int:id>/', views.show_one, name='show_one'),
+    # path('api/people/<int:pk>/', PeopleUpdateView.as_view(), name='person-update'),
+    # path('api/peopled/<int:pk>/', PeopleDeleteView.as_view(), name='person-delete'),
+    # path('api/people/', PeopleCreateView.as_view(), name='people-create'),
+    # path('peoplelist/', views.PeopleList.as_view()),
 ]
