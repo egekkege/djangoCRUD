@@ -1,7 +1,5 @@
-from django.conf.urls import url
 from django.urls import path, include
-from django.contrib import admin
+from testdb.api import SimpleApI
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    path('account', include('testdb.urls')),
+    path('api/hello', SimpleApI.as_view() ),
 ]

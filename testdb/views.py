@@ -10,6 +10,7 @@ from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from .serializers import PeopleSerializer
 from .models import People
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import mixins
 from rest_framework import generics
 #from rest_framework.tokens import RefreshToken
@@ -17,6 +18,7 @@ from rest_framework import generics
 # Views below help to CRUD operations
 
 class PeopleList(APIView):
+    permission_classes = (IsAuthenticated,)
     """
     List all people, or create a new person.
     """
