@@ -1,16 +1,16 @@
 version: "3.9"
 
 services:
-  djangoapp:
-    container_name: djangoapp
+  testdb:
+    container_name: testdb
     build: .
     ports:
       - "8000:8000"
     environment:
       - PG_USER=postgres
       - PG_PASSWORD=egemen
-      - PG_DB=fordj
-      - PG_PORT=5431
+      - PG_DB=postgres
+      - PG_PORT=5432
       - PG_HOST=db
     depends_on:
       - db
@@ -19,11 +19,11 @@ services:
     container_name: db
     image: postgres:12
     environment:
-      - POSTGRES_DB=fordj
+      - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=egemen
     ports:
-      - "5431:5431"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 

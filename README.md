@@ -1,11 +1,11 @@
 # djangoCRUD
-This repo perfroms CRUD operations with Django and PostgrSQL. Aimed to work with docker \ \
+This repo perfroms CRUD operations with Django and PostgrSQL. Aimed to work with docker \ Now only the database works on the Docker.  \
 
 JWT access token Demo Video:
 
 https://github.com/egekkege/djangoCRUD/assets/29844651/e8bae2eb-d518-4542-b6c0-61c42ce659d4
 
-
+\
 
 
 Sources:

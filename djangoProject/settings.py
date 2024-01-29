@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-s3^orbjrksap-&25&fveouqkrlz&p5-6ec69^%w^g6#9-0^giu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"] # Allow to host on 0.0.0.0:8000
 
 
 # Application definition
@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fordj',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'egemen',
         'HOST': 'localhost',

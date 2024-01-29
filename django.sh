@@ -1,12 +1,11 @@
 #!/bin/bash
 echo "Creating Migrations..."
-python3 manage.py makemigrations
+python3 manage.py makemigrations testdb
 echo ====================================
 
 echo "Starting Migrations..."
 python3 manage.py migrate
 echo ====================================
-source .venv/bin/activate
-#python3 manage.py startapp testdb
+
 echo "Starting Server..."
-python3 manage.py runserver
+python3 manage.py runserver 0.0.0.0:8000
