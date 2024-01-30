@@ -12,7 +12,7 @@ RUN pip install -r requirements.txt
 
 # Bundle app source
 COPY . .
-
+RUN chmod +x /app/django.sh
 # Expose port
 EXPOSE 8000
 
